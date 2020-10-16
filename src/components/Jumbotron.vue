@@ -1,13 +1,20 @@
 <template>
-  <div class="jumbotron-container">
-    <img :src="getImgUrl(background)" alt="Imagem de fundo" />
-    <div class="text">
-      <div class="title">
-        <h1>
-          {{ name }} <span>{{ sirname }}</span>
-        </h1>
-      </div>
-      <div class="subtext">{{ subtext }}</div>
+  <div :class="[{ 'jumbotron-container': loaded }]">
+    <transition name="fade-in-img">
+      <img class="img" :src="image" @load="loadImage" v-show="loaded" />
+    </transition>
+
+    <div v-if="loaded" class="text">
+      <transition name="fade-in-title" appear>
+        <div class="title typewriter">
+          <h1>
+            {{ name }} <span>{{ sirname }}</span>
+          </h1>
+        </div>
+      </transition>
+      <transition name="fade-in-text" appear>
+        <div class="subtext">{{ subtext }}</div>
+      </transition>
     </div>
   </div>
 </template>
@@ -17,23 +24,18 @@ export default {
   name: "MainMenu",
   data() {
     return {
-      background: "mobile_background.jpg",
       name: "",
       sirname: "",
+      loaded: false,
     };
   },
-  props: ["title", "subtext"],
+  props: ["title", "subtext", "image"],
   methods: {
-    getImgUrl(img_name) {
-      return require("../assets/" + img_name);
+    loadImage() {
+      this.loaded = true;
     },
   },
   created() {
-    this.background =
-      window.innerWidth < 768
-        ? "mobile_background.jpg"
-        : "header_background.jpg";
-
     let name = this.title.split(" ");
     this.name = name[0];
     this.sirname = name[1];
@@ -47,6 +49,7 @@ export default {
   height: 100vh;
   position: relative;
   color: white;
+  background-size: contain;
 
   &::after {
     content: "";
@@ -58,11 +61,13 @@ export default {
     left: 0;
   }
 
-  img {
+  .img {
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
+    width: 100%;
+    height: 100%;
   }
 
   .text {
@@ -74,6 +79,7 @@ export default {
     width: 80%;
 
     .title {
+      margin-bottom: 1rem;
       span {
         color: #16cead;
       }
@@ -83,5 +89,27 @@ export default {
       text-align: justify;
     }
   }
+}
+
+.fade-in-img-enter,
+.fade-in-title-enter,
+.fade-in-text-enter {
+  opacity: 0;
+}
+
+.fade-in-img-enter-to,
+.fade-in-title-enter-to,
+.fade-in-text-enter-to {
+  opacity: 1;
+}
+
+.fade-in-img-enter-active {
+  transition: opacity 1s ease-out;
+}
+
+.fade-in-title-enter-active,
+.fade-in-text-enter-active {
+  transition: opacity 1s ease-in;
+  transition-delay: 1s;
 }
 </style>

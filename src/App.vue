@@ -46,4 +46,17 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.fade-in-enter {
+  opacity: 0;
+}
+
+.fade-in-to {
+  opacity: 1;
+}
+
+.fade-in-enter-active {
+  transition: opacity 0.5s ease-in;
+  transition-delay: 1s;
+}
 </style>
