@@ -1,26 +1,16 @@
 <template>
   <div class="nav-container">
-    <div class="social-menu">
-      <font-awesome-icon :icon="['fab', 'facebook-square']" />
-      <font-awesome-icon :icon="['fab', 'instagram']" />
-    </div>
-    <div class="logo"></div>
-    <div class="menu">
-      <font-awesome-icon :icon="['fa', 'bars']" />
+    <div class="logo">
+      <img src="../assets/logo_white.svg" alt="logo do site" />
     </div>
   </div>
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
 export default {
   name: "MainMenu",
   data() {
     return {};
-  },
-  components: {
-    FontAwesomeIcon,
   },
 };
 </script>
@@ -36,7 +26,8 @@ export default {
   z-index: 2;
   align-items: center;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  padding: 3rem 0;
 
   .social-menu,
   .menu {
