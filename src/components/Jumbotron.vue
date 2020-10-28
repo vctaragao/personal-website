@@ -13,8 +13,18 @@
         </div>
       </transition>
       <transition name="fade-in-text" appear>
-        <div class="subtext">{{ subtext }}</div>
+        <div class="subtext">
+          {{ subtext }}
+          <span class="start-here">
+            <router-link to="/start-here"> Comece aqui! </router-link>
+          </span>
+        </div>
       </transition>
+    </div>
+
+    <div v-if="loaded" class="nav-options">
+      <a href="#blog">Blog</a>
+      <a href="#projects">Projetos</a>
     </div>
   </div>
 </template>
@@ -87,6 +97,33 @@ export default {
 
     .subtext {
       text-align: justify;
+
+      .start-here a {
+        color: $sub-color;
+      }
+    }
+  }
+
+  .nav-options {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+
+    a {
+      color: white;
+      opacity: 0.5;
+      transition: 0.5s;
+
+      &:hover {
+        opacity: 1;
+        color: $sub-color;
+      }
     }
   }
 }

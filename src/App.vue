@@ -22,6 +22,11 @@ h6 {
   font-family: $primary-font;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
