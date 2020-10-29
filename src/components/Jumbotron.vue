@@ -21,11 +21,12 @@
         </div>
       </transition>
     </div>
-
-    <div v-if="loaded" class="nav-options">
-      <a href="#blog">Blog</a>
-      <a href="#projects">Projetos</a>
-    </div>
+    <transition name="fade-in-options" appear>
+      <div v-if="loaded" class="nav-options">
+        <a class="btn-thin-border-effect" href="#blog">Blog</a>
+        <a class="btn-thin-border-effect" href="#projects">Projetos</a>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -128,15 +129,46 @@ export default {
   }
 }
 
+.btn-thin-border-effect {
+  letter-spacing: 0;
+  line-height: 1.5rem;
+}
+
+.btn-thin-border-effect:hover,
+.btn-thin-border-effect:active {
+  letter-spacing: 1px;
+}
+
+.btn-thin-border-effect:after {
+  backface-visibility: hidden;
+  border: 0.1px solid rgba(#16cead, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-thin-border-effect:hover:after {
+  backface-visibility: hidden;
+  border-color: $sub-color;
+  transition: width 350ms ease-in-out;
+  width: 95%;
+}
+
 .fade-in-img-enter,
 .fade-in-title-enter,
-.fade-in-text-enter {
+.fade-in-text-enter,
+.fade-in-options-enter {
   opacity: 0;
 }
 
 .fade-in-img-enter-to,
 .fade-in-title-enter-to,
-.fade-in-text-enter-to {
+.fade-in-text-enter-to,
+.fade-in-options-enter-to {
   opacity: 1;
 }
 
@@ -148,5 +180,10 @@ export default {
 .fade-in-text-enter-active {
   transition: opacity 1s ease-in;
   transition-delay: 1s;
+}
+
+.fade-in-options-enter-active {
+  transition: opacity 1s ease-in;
+  transition-delay: 1.5s;
 }
 </style>
