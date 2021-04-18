@@ -54,4 +54,10 @@ export default {
     }
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .footer_container {
+    margin-top: 3rem;
+  }
+}
 </style>

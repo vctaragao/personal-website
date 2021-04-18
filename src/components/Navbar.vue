@@ -6,7 +6,9 @@
       /></router-link>
     </div>
     <div class="social-icons">
-      <a href="#"></a><font-awesome-icon :icon="['fab', 'instagram']" />
+      <a target="_blank" href="https://www.instagram.com/vitu.tech/">
+        <font-awesome-icon :icon="['fab', 'instagram']"
+      /></a>
     </div>
   </div>
 </template>
@@ -38,6 +40,14 @@ export default {
     cursor: pointer;
     &:hover {
       color: $sub-color;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-container {
+    .logo {
+      width: 18%;
     }
   }
 }
