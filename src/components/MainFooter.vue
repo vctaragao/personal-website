@@ -5,7 +5,7 @@
     <nav class="footer_menu">
       <router-link to="/"> Inicio </router-link>
       <span class="divider">|</span>
-      <router-link to="/"> Comece aqui! </router-link>
+      <router-link to="/start-here"> Comece aqui! </router-link>
       <span class="divider">|</span>
       <router-link to="#"> Portifólio </router-link>
       <span class="divider">|</span>
