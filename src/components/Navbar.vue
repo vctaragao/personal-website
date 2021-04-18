@@ -29,6 +29,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   background-color: $black-bg-color;
+  z-index: 0;
 
   .logo {
     width: 30%;
@@ -48,6 +49,27 @@ export default {
   .navbar-container {
     .logo {
       width: 18%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .navbar-container {
+    padding: 0.5rem $lateralDektopMarginandPaddingAjust;
+    .logo {
+      width: 11%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .navbar-container {
+    padding: 0.5rem $lateralDektop1920MarginandPaddingAjust;
+    .social-icons {
+      margin-right: 0.5rem;
+    }
+    .logo {
+      width: 11%;
     }
   }
 }

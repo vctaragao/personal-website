@@ -94,4 +94,19 @@ export default {
     transition-delay: 0.5s;
   }
 }
+
+@media only screen and (min-width: 1366px) {
+  .content {
+    margin: 0 $lateralDektopMarginandPaddingAjust;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  img {
+    width: 60%;
+  }
+  .content {
+    margin: 0 $lateralDektop1920MarginandPaddingAjust;
+  }
+}
 </style>

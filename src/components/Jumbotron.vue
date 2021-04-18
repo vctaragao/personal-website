@@ -194,4 +194,13 @@ export default {
     }
   }
 }
+
+@media only screen and (min-width: 1366px) {
+  .jumbotron-container {
+    .text {
+      font-size: 1.25rem;
+      width: 40%;
+    }
+  }
+}
 </style>

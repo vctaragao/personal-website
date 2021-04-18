@@ -23,7 +23,7 @@ export default {
   width: 100%;
   height: 10vh;
   background-color: transparent;
-  z-index: 2;
+  z-index: 0;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -49,6 +49,12 @@ export default {
 @media only screen and (min-width: 768px) {
   .nav-container {
     height: 25vh;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .nav-container {
+    height: 60vh;
   }
 }
 </style>
