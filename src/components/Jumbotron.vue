@@ -21,12 +21,12 @@
         </div>
       </transition>
     </div>
-    <transition name="fade-in-options" appear>
+    <!-- <transition name="fade-in-options" appear>
       <div v-if="loaded" class="nav-options">
         <a class="btn-thin-border-effect" href="#blog">Blog</a>
         <a class="btn-thin-border-effect" href="#projects">Projetos</a>
       </div>
-    </transition>
+    </transition> -->
   </div>
 </template>
 
@@ -185,5 +185,13 @@ export default {
 .fade-in-options-enter-active {
   transition: opacity 1s ease-in;
   transition-delay: 1.5s;
+}
+
+@media only screen and (min-width: 768px) {
+  .jumbotron-container {
+    &::after {
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+  }
 }
 </style>
